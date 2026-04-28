@@ -60,7 +60,7 @@ const BookNow = () => {
   }
 
   return (
-    <div className='w-full min-h-screen flex justify-center items-center bg-gray-100 px-5 py-20'>
+    <div id="book now"  className='w-full min-h-screen flex justify-center items-center bg-gray-100 px-5 py-20'>
       
       <form onSubmit={handleSubmit} className='bg-white shadow-lg rounded-lg p-8 w-full max-w-xl flex flex-col gap-4'>
         

@@ -1,36 +1,12 @@
-// import React, { useEffect, useState } from 'react'
-// import { Link } from 'react-scroll'
-// import { IoCloseSharp } from 'react-icons/io5'
-// import { FaBars } from 'react-icons/fa'
-
-// const Header = () => {
-
-//   const [menuOpen, setMenuOpen] = useState(false);
-//   const [scrolled , setScrolled] = useState(false);
-
-//   const menuLinks = [
-//     { name: "Home", to: 'home'},
-//     { name: "About", to: 'about'},
-//     { name: "Services", to: 'services'},
-//     { name: "Packages", to: 'packages'},
-//     { name: "Contact", to: 'contact'},
-//   ];
-
-
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-scroll'
 import { IoCloseSharp } from 'react-icons/io5'
 import { FaBars } from 'react-icons/fa'
-import { useLocation } from 'react-router-dom'   // 👈 add this
 
 const Header = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled , setScrolled] = useState(false);
-
-  const location = useLocation(); // 👈 get current route
-
-  const isBookNowPage = location.pathname === './BookNow.jsx'; // 👈 adjust if route differs
 
   const menuLinks = [
     { name: "Home", to: 'home'},
@@ -38,7 +14,9 @@ const Header = () => {
     { name: "Services", to: 'services'},
     { name: "Packages", to: 'packages'},
     { name: "Contact", to: 'contact'},
+    { name: "Book Now", to: 'book now'},
   ];
+
   //  Disable scroll effect when menu is open
 
   useEffect(()=> {
@@ -92,9 +70,7 @@ const Header = () => {
 
         {/* desktop menu */}
         <nav className='hidden md:block'>
-        {/* <ul className='flex space-x-10 text-lg text-white font-poppins'> */}
-        <ul className={`flex space-x-10 text-lg font-poppins 
-         ${isBookNowPage ? 'text-orange-600' : 'text-white'}`}>
+        <ul className='flex space-x-10 text-lg text-white font-poppins'>
          {menuLinks.map((link) => (
           <li key={link.to}>
             <Link to={link.to} smooth duration={500} className='cursor-pointer
@@ -117,9 +93,7 @@ const Header = () => {
           onClick={() => setMenuOpen(false)}/>
 
           {/* menu items */}
-          {/* <ul className='flex flex-col space-y-8 text-2xl text-center font-poppins '> */}
-          <ul className={`flex flex-col space-y-8 text-2xl text-center font-poppins
-            ${isBookNowPage ? 'text-orange-600' : 'text-white'}`}>
+          <ul className='flex flex-col space-y-8 text-2xl text-center font-poppins '>
             {menuLinks.map((link)=>(
               <li key={link.to}>
                 <Link to={link.to} smooth duration={500} onClick={()=> 
