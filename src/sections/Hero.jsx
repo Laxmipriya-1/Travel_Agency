@@ -2,8 +2,12 @@ import React, { useEffect } from 'react'
 import heroimg from '../assets/hero.webp'
 import Aos from 'aos'
 import 'aos/dist/aos.css';
+ import { useNavigate } from 'react-router-dom'
+
 
 const Hero = () => {
+
+  const navigate = useNavigate();
   
   useEffect(()=>{
     Aos.init({
@@ -31,9 +35,14 @@ const Hero = () => {
       lg:w-[50%] w-full'>Explore the world with us—affordable tours, unforgettable journeys, expert guides, 
       seamless bookings, and memories that last a lifetime.</p>
 
-      <button data-aos="slide-up" data-aos-delay="300" className='bg-orange-600
+      {/* <button data-aos="slide-up" data-aos-delay="300" className='bg-orange-600
       hover:bg-black hover:text-white px-8 py-3 font-semibold capitalize rounded
-       mt-5 cursor-pointer'>Book Now</button>
+       mt-5 cursor-pointer'>Book Now</button> */}
+
+   <button onClick={() => navigate('/book')}
+     className='bg-orange-600 hover:bg-black px-8 py-3 rounded'>
+      Book Now
+    </button>
     </div>
     
   </div>
